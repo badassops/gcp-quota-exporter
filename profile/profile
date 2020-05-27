@@ -1,0 +1,23 @@
+umask 022
+
+# Aliases
+alias   rm='rm -I --preserve-root'
+alias   mv='mv -i'
+alias   cp='cp -i'
+alias   del='/bin/rm'
+alias   ps='/bin/ps axuf'
+alias   psa='/bin/ps axu | egrep -v "\["'
+alias   df='/bin/df -h'
+alias   les='less'
+alias   grep='egrep'
+alias   ll='ls -la'
+
+export CHARSET=UTF-8
+export LANG=C.UTF-8
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PAGER=less
+
+export PS1="\[\033[0;31m\]\342\224\214\342\224\200\$(echo \"\[\033[0;31m\]\[\]\342\224\200\")[echo '\[\e[4;32m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h'\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200 \[\033[0m\]\[\e[01;33m\]\\$\[\e[0m\] "
+
+export PROMPT="\[\033[0;31m\]\342\224\214\342\224\200\$(echo \"\[\033[0;31m\]\[\]\342\224\200\")[echo '\[\e[4;32m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h'\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200 \[\033[0m\]\[\e[01;33m\]\\$\[\e[0m\] "
+

@@ -1,0 +1,13 @@
+# Global settings
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+PATH=$PATH:/usr/local/bin:/usr/local/sbin
+PATH=$PATH:$HOME/bin:.
+export PATH
+
+# Needed for color xterm
+COLORTERM=$TERM
+export COLORTERM
+
+# set time to 24 hours
+export LC_TIME=C

@@ -1,0 +1,33 @@
+# default mask
+umask 022
+
+# Setup Auto completion
+autoload -U +X compinit && compinit
+
+# bigger shell functions to autoload
+autoload -Uz compdef
+autoload zed
+autoload run-help
+
+# filename completion suffixes to ignore
+fignore=(.o .c~ .old)
+
+## Parameters for ls
+export LS_COLORS='di=04;36:ln=04;44:pi=40;36:so=01;35:bd=40;36;01:cd=40;36;01:ex=01;33:*.cmd=01;33:*.exe=01;33:*.com=01;33:*.btm=01;33:*.bat=01;33:*.tar=04;35:*.tgz=04;35:*.arj=04;35:*.rar=04;35:*.taz=04;35:*.lzh=04;35:*.lha=04;35:*.zip=04;35:*.z=04;35:*.Z=04;35:*.gz=04;35:*.jpg=02;32:*.gif=02;32:*.bmp=02;32:*.xbm=02;32:*.xpm=02;32:*.tif=02;32:*core=04;40:*.txt=04;33::*.ps=02;33:*.bib=02;33:*.tex=02;33:*.texi=04;33:*.doc=04;33:*.rtf=04;33:*.htm=04;32:*.html=04;32:*.shtml=02;33:*.old=02;35:*.bak=01;35:*.save=02;35:*.cc=02;44:*.c=02;44:*.m=02;44:*.o=02;35:*test=02;46:*.h=01;32:*Makefile=04;46:*INSTALL=04;45:*README=04;45:*readme*=04;45'
+LS_OPTIONS=--color=auto
+
+# set/unset shell options
+setopt notify globdots correct pushdtohome cdablevars autolist
+setopt sunkeyboardhack autocd recexact longlistjobs
+setopt autoresume histignoredups pushdsilent automenu
+setopt autopushd pushdminus extendedglob rcquotes mailwarning
+unsetopt bgnice
+
+# emac key binding
+bindkey -e
+
+# set prompts
+PS1=$'\n%F{cyan}[%*] %B%n%b =>  %~\n%B%F{red}BadassOps:%F{blue}%m%b[%!] %f >'
+PS2=$'\n%F{cyan}[%*] %B%n%b =>  %~\n%B%F{red}BadassOps:%F{blue}%m%b[%!] %f #'
+PROMPT=$'\n%F{cyan}[%*] %B%n%b =>  %~\n%B%F{red}BadassOps:%F{blue}%m%b [%!] %f'
+export PS1 PS2 PROMPT

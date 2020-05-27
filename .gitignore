@@ -93,3 +93,5 @@ ENV/
 
 # pytest cache
 .pytest_cache/
+
+# ignore these

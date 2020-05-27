@@ -1,0 +1,25 @@
+#!/bin/bash
+
+_gcr_project=$1
+_image=$2
+_version=$3
+
+echo -en "\t *** Press enter to continue or Control-C to abort: "
+read InKey
+
+for _repo in us.gcr.io eu.gcr.io asia.gcr.io
+do
+	_image_info=$(gcloud container images list-tags $_repo/${_gcr_project}/${_image} | tail -1 | awk '{printf("%s:%s", $1, $2);}')
+	if [[ ! -z $_image_info ]]; then
+		_image_sha=${_image_info//:*}
+		_image_tag=${_image_info//*:}
+		if [[ "$_image_tag" != "$_version" ]] ; then
+			echo -e "\t *** deleting image with sha $_image_sha in repo $_repo ***"
+			gcloud container images delete $_repo/${_gcr_project}/${_image}@sha256:$_image_sha --quiet --force-delete-tags
+		else
+			echo -e "\t *** keeping sha $_image_sha with tag $_image_tag in $_repo ***"
+		fi
+	else
+		echo -e "\t *** no image found to be deleted in repo $_repo ***"
+	fi
+done
