@@ -9,11 +9,13 @@ flake8-mypy = {editable = true,git = "https://github.com/ambv/flake8-mypy.git",r
 pylint = "*"
 pytest = "*"
 pytest-flake8 = "*"
+rsa = ">=4.1"
 
 [packages]
 google-api-python-client = "==1.6.2"
 APScheduler = "==3.3.1"
 prometheus_client = "==0.4.2"
+rsa = ">=4.1"
 
 [requires]
 python_version = "3.7"
